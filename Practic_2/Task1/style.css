@@ -1,0 +1,13 @@
+h1 {
+    /*font-size: 28px;*/
+    font-family: Monaco, Courier, monospace;
+    color: #618ad2;
+}
+
+p {
+    transition: font-size .5s;
+}
+
+label result {
+  font-style: italic;
+}
