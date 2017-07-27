@@ -5,9 +5,7 @@
     <title>Задание 2 — массивы</title>
     <!--Bootstrap-->
     <link href="../../Bootstrap/Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="../../Bootstrap/Content/bootstrap-theme.min.css" rel="stylesheet" />
-
-    <!--<link href="style.css" rel="stylesheet">-->
+    <link href="../../Bootstrap/Content/bootstrap-theme.min.css" rel="stylesheet" />    
 </head>
 <body>
     <div class="container">
@@ -17,16 +15,31 @@
         <div class="row">
             <form class="form-inline">
                 <div class="form-group">
-                    <h4>a) Пользователь вводит в поле ряд чисел, разделенных запятыми. Найти среди них минимальное, максимальное, а также индексы первого вхождения минимального и максимального числа.</h4>
+                    <h4>a) Пользователь вводит в поле ряд чисел, разделенных запятыми.
+                        Найти среди них минимальное, максимальное, а также индексы первого
+                     вхождения минимального и максимального числа.</h4>
                     <label for="numbers">Введите числа, разделенные запятыми:</label>
                     <input type="text" class="form-control" id="numbers">
-                    <button type="button" class="btn btn-default" onclick="workWithArray()">Подсчитать</button>
+                    <button type="button" class="btn btn-default" onclick=" taskA() ">Найти</button>
+                    <div id="taskA"></div>
+
+                    <h4>b) Отсортировать ряд чисел из задания 2a по возрастанию с помощью функции sort().</h4>                                        
+                    <button type="button" class="btn btn-default" onclick=" taskB() ">Отсортировать</button>
+                    <div id="taskB"></div>
+
+                    <h4>c) Дан массив числовых массивов, то есть массив, 
+                    элементами которого являются массивы чисел. Его можно записать в коде, вводить не надо. Отсортировать массив  по возрастанию сумм элементов вложенных массивов с помощью функции sort.</h4>
+                    <button type="button" class="btn btn-default" onclick=" taskC() ">Отсортировать</button>
+                    <div id="taskC"></div>
+
+                    <h4>
+                        d)	Отсортировать ряд чисел из задания 2a по убыванию без использования функции sort, то есть самостоятельно реализовать алгоритм сортировки. Выбор алгоритма на усмотрение студента.
+                        <br/><em>Пример сортировки пузырьком по возрастанию был на лекции</em>
+                    </h4>
+                    <button type="button" class="btn btn-default" onclick=" taskD() ">Отсортировать</button>
+                    <div id="taskD"></div>
                 </div>
-            </form>
-            <div id="taskA">
-            </div>
-            <div id="taskB">
-            </div>
+            </form>           
         </div>
         <!--<div class="row">
             <form class="form-inline">
@@ -85,5 +98,6 @@
 
     <script src="script.js"></script>
     <script src="../../Bootstrap/Scripts/bootstrap.min.js"></script>
+    <script src="../../Bootstrap/Scripts/jquery-1.9.1.min.js"></script>
 </body>
 </html>
