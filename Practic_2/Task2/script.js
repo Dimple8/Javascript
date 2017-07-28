@@ -5,12 +5,12 @@
     var indexMax = 0;
     var indexMin = 0;
 
-    for (var i = 0; i < numbers.length; i++) {       
-        if (parseFloat(numbers[i]) > parseFloat(numbers[indexMax])) {           
+    for (var i = 0; i < numbers.length; i++) {
+        if (parseFloat(numbers[i]) > parseFloat(numbers[indexMax])) {
             indexMax = i;
         }
 
-        if (parseFloat(numbers[i]) < parseFloat(numbers[indexMin])) {            
+        if (parseFloat(numbers[i]) < parseFloat(numbers[indexMin])) {
             indexMin = i;
         }
     }
@@ -26,7 +26,7 @@
 function taskB() {
     document.getElementById("taskB").innerHTML = "";
     var str = document.getElementById("numbers").value;
-    var numbers = str.split(",");    
+    var numbers = str.split(",");
     //var sortArray = numbers.sort();
 
     function sortNumber(a, b) {
@@ -47,29 +47,63 @@ function taskC() {
 
     var generalArray = [array1, array2, array3, array4, array5];
 
-    document.getElementById("taskC").innerHTML = "";   
-    outPut("Массив массивов: ", generalArray);    
+    document.getElementById("taskC").innerHTML = "";
+    outPut("Массив массивов: ", generalArray, "taskC");
     outPut("Отсортированный массив по суммам: ",
-        generalArray.sort((a, b) => a.reduce((a, b) => a + b) - 
-            b.reduce((a, b) => a + b)));
+        generalArray.sort((a, b) => a.reduce((a, b) => a + b) -
+            b.reduce((a, b) => a + b)), "taskC");
 
 }
 
 function sortArray(arr) {
-    var arraySums = [];  
+    var arraySums = [];
     for (var i = 0; i < arr.length; i++) {
         var sum = 0;
         for (var j = 0; j < arr[i].length; j++) {
             sum += arr[i][j];
         }
         arraySums[i] = sum;
-        
+
     }
     arraySums = arraySums.sort(function(a, b) { return a - b;});
     return arraySums;
 }
 
-function outPut(title, array) {
+function taskD() {
+  document.getElementById("taskD").innerHTML = "";
+  var testArray = [2, 5, 3, 0, 2, 3, 0, 3];
+
+  outPut("Тестовый массив: ",
+    testArray, "taskD");
+
+  outPut("Отсортированный массив с помощью \"Сортировки подсчетом\": ",
+      countingSort(testArray), "taskD");
+
+
+}
+
+function countingSort(arr) {
+  var sortedArr = [];
+  var tempArr = [];
+  var k = 5;
+  for (let i = 0; i <= k; i++) {
+    tempArr[i] = 0;
+  }
+  for (let j = 0; j < arr.length; j++) {
+    tempArr[arr[j]] = tempArr[arr[j]] + 1;
+  }
+  for (let i = 1; i <= k; i++) {
+    tempArr[i] = tempArr[i] + tempArr[i - 1];
+  }
+  for (let j = arr.length - 1; j >= 0; j--) {
+    sortedArr[tempArr[arr[j]] - 1] = arr[j];
+    tempArr[arr[j]] = tempArr[arr[j]] - 1;
+  }
+
+  return sortedArr;
+}
+
+function outPut(title, array, idOutuput) {
     var out = "<blockquote>" + title;
     var i = 0;
     while (i < array.length) {
@@ -82,6 +116,5 @@ function outPut(title, array) {
     }
     out += "</blockquote>";
 
-    document.getElementById("taskC").innerHTML += out;
+    document.getElementById(idOutuput).innerHTML += out;
 }
-
